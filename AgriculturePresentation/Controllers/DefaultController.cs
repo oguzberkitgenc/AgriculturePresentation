@@ -15,9 +15,9 @@ namespace AgriculturePresentation.Controllers
         {
             _contactService = contactService;
         }
-
         public IActionResult Index()
         {
+
             return View();
         }
         [HttpGet]
@@ -31,6 +31,10 @@ namespace AgriculturePresentation.Controllers
             contact.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
             _contactService.Insert(contact);
             return RedirectToAction("Index","Default");
+        }
+        public PartialViewResult ScriptPartial()
+        {
+            return PartialView();
         }
     }
 }
