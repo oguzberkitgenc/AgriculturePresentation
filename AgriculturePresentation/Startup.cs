@@ -49,7 +49,8 @@ namespace AgriculturePresentation
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
-
+            services.AddScoped<IAdminService, AdminManager>();
+            services.AddScoped<IAdminDal, EfAdminDal>();
             
 
             services.AddDbContext<AgricultureContext>();
