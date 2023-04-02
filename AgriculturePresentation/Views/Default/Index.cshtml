@@ -61,7 +61,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="container">
            @await Component.InvokeAsync("_AddressPartial")
 
-            @await Component.InvokeAsync("_ContactPartial")
+          @*  @await Component.InvokeAsync("_ContactPartial")*@
+
+            @await Html.PartialAsync("/Views/Default/SendMessage.cshtml")
         </div>
     </div>
     <div class="map-w3ls">
