@@ -56,8 +56,8 @@
             <body>
                 <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
                 <script>
-                    var xValues = ["Buğday", "Arpa", "Mısır", "Mercimek", "Pirinç"];
-                    var yValues = [@ViewBag.v1, 49, 44, @ViewBag.v2, 15];
+                    var xValues = ["Web", "Desktop", "Android", "AI"];
+                    var yValues = [@ViewBag.v1, @ViewBag.v2, @ViewBag.v3, @ViewBag.v4];
                     var barColors = ["red", "green", "blue", "orange", "brown"];
 
                     new Chart("myChart1", {
@@ -73,7 +73,7 @@
                             legend: { display: false },
                             title: {
                                 display: true,
-                                text: "2022 Bakliyat Üretimi"
+                                text: "2023 Proje Dağılımı"
                             }
                         }
                     });
