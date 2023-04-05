@@ -133,7 +133,7 @@ namespace AgriculturePresentation.Controllers
                 {
                     workBook.SaveAs(stream);
                     var content = stream.ToArray();
-                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "DuyurRapor.xlsx");
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "DuyuruRapor.xlsx");
                 }
             }
         }
