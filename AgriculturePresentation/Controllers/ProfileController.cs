@@ -14,7 +14,7 @@ namespace AgriculturePresentation.Controllers
         {
             _userManager = userManager;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -22,6 +22,23 @@ namespace AgriculturePresentation.Controllers
             userEditViewModel.Mail = values.Email;
             userEditViewModel.Phone = values.PhoneNumber;
             return View(userEditViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Index(UserEditViewModel p)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (p.Password == p.ConfirmPassword)
+            {
+                values.Email = p.Mail;
+                values.PhoneNumber = p.Phone;
+                values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, p.Password);
+                var result = await _userManager.UpdateAsync(values);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            return View();
         }
     }
 }
